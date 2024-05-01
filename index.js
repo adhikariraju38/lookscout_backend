@@ -14,7 +14,7 @@ app.use(cors());
 mongoose.connect(process.env.MONGO_DB).then(() => {
   console.log("mongo db connected");
 });
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", async (req, res) => {res.send("Express on Vercel")});
 
 //routing
 app.use("/", contact_routes);
