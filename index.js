@@ -14,16 +14,11 @@ app.use(cors());
 mongoose.connect(process.env.MONGO_DB).then(() => {
   console.log("mongo db connected");
 });
-
-app.use(bodyParser.json());
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //routing
 app.use("/", contact_routes);
 //app.use("/", )
 
-//database connecting to mongo db
-
-app.listen(8000, () => {
-  console.log("Running");
-  console.log("admin Running at /admin");
-});
+app.listen(3000, () => console.log("Server ready on port 3000."));
+app.use(bodyParser.json());
